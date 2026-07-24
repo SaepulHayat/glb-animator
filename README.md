@@ -1,32 +1,30 @@
-# React + TypeScript + Vite
+# GLB Animator
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Web app untuk upload file `.glb`, preview model 3D + animasinya langsung di browser, lalu generate kode React Three Fiber yang siap di-copy-paste ke project lain.
 
-Currently, two official plugins are available:
+100% client-side — tidak ada file yang diupload ke server manapun.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Fitur
 
-## React Compiler
+- Upload `.glb` lewat drag-and-drop atau file picker (maks 100MB)
+- Preview 3D dengan orbit/zoom/pan
+- Deteksi otomatis animation clips yang ada di dalam file
+- Play/pause, pilih clip, atur speed (0.5x–2x), dan loop mode
+- Generate kode React Three Fiber (TypeScript + Suspense) lengkap dengan syntax highlighting dan tombol copy
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Menjalankan secara lokal
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Build production
+
+```bash
+npm run build
+```
+
+## Tech stack
+
+React + Vite + TypeScript, [@react-three/fiber](https://github.com/pmndrs/react-three-fiber) + [@react-three/drei](https://github.com/pmndrs/drei), Tailwind CSS, Prism.js.
